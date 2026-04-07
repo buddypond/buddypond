@@ -160,7 +160,7 @@
   .bp-file-explorer-upload-container {
     width: 100%;
     max-width: 800px;
-    /* background: #fff; */
+    background: #fff;
     border: 1px solid #999;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 16px;

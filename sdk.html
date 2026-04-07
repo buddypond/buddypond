@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="description"
-    content="Buddy Pond SDK - Use any Buddy Pond App inside any existing Web Page" />
+  <meta name="description" content="Buddy Pond SDK - Use any Buddy Pond App inside any existing Web Page" />
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://buddypond.com/sdk">
   <meta name="twitter:site" content="@marak">
@@ -13,7 +12,7 @@
   <meta name="twitter:title" content="Buddy Pond SDK">
   <meta name="twitter:description" content="Buddy Pond SDK - Use any Buddy Pond App inside any existing Web Page">
   <meta name="twitter:image" content="https://buddypond.com/coin/buddy-the-frog-16-9.png">
-  
+
   <title>BuddyPond SDK</title>
   <link rel="stylesheet" href="sdk-styles.css">
 
@@ -21,14 +20,13 @@
 
   <script>
 
-
     // on document load
     document.addEventListener('DOMContentLoaded', async (event) => {
       console.log('DOM fully loaded and parsed');
 
       await bp.init({
-        // env: 'dev',
-        // host: 'http://192.168.200.59'
+        //env: 'dev',
+        //host: 'http://192.168.200.59'
       });
 
       console.log(bp.apps)
@@ -38,6 +36,9 @@
       await bp.open('fluid-simulation', {
         panel: '.targetDiv1'
       });
+
+      // Remark: You may optionally load the theme system to skim apps etc
+      // await bp.open('themes');
 
       await bp.open('taskbar');
 
@@ -82,6 +83,18 @@
     }
 
   </script>
+  <style>
+    /* TODO: go back to apps/file-explorer to remove min import by default, use new build system even for vendor, see: /v5/apps/based/file-explorer/vendor/style.min.css */
+    .jstree-anchor {
+      display: inline-block;
+      color: black;
+      white-space: nowrap;
+      padding: 0 4px 0 1px;
+      margin: 0;
+      vertical-align: top;
+      font-size: 12px !important;
+    }
+  </style>
 </head>
 
 <body class="sdk-body">
@@ -183,7 +196,8 @@ document.addEventListener('DOMContentLoaded', async (event) => {
         </div>
 
         <div class="sdk-app">
-          <h3><img src="/desktop/assets/images/icons/icon_tweets_64.webp" alt="Tweets" class="sdk-app-icon" />Tweets</h3>
+          <h3><img src="/desktop/assets/images/icons/icon_tweets_64.webp" alt="Tweets" class="sdk-app-icon" />Tweets
+          </h3>
           <p>View and post tweets</p>
           <pre class="sdk-pre"><code data-run="true">await bp.open('tweets');</code></pre>
         </div>
@@ -340,18 +354,21 @@ document.addEventListener('DOMContentLoaded', async (event) => {
           <pre class="sdk-pre"><code data-run="true">await bp.open('file-viewer');</code></pre>
         </div>
         <div class="sdk-app">
-          <h3><img src="/desktop/assets/images/icons/icon_camera_64.webp" alt="Camera" class="sdk-app-icon" />Camera</h3>
+          <h3><img src="/desktop/assets/images/icons/icon_camera_64.webp" alt="Camera" class="sdk-app-icon" />Camera
+          </h3>
           <p>Capture photos and videos</p>
           <pre class="sdk-pre"><code data-run="true">await bp.open('camera');</code></pre>
         </div>
         <div class="sdk-app">
-          <h3><img src="/desktop/assets/images/icons/icon_hex-editor_64.webp" alt="Hex Editor" class="sdk-app-icon" />Hex
+          <h3><img src="/desktop/assets/images/icons/icon_hex-editor_64.webp" alt="Hex Editor"
+              class="sdk-app-icon" />Hex
             Editor</h3>
           <p>Edit files in hexadecimal format</p>
           <pre class="sdk-pre"><code data-run="true">await bp.open('hex-editor');</code></pre>
         </div>
         <div class="sdk-app">
-          <h3><img src="/desktop/assets/images/icons/icon_mantra_64.webp" alt="Mantra" class="sdk-app-icon" />Mantra</h3>
+          <h3><img src="/desktop/assets/images/icons/icon_mantra_64.webp" alt="Mantra" class="sdk-app-icon" />Mantra
+          </h3>
           <p>Experimental Game Engine</p>
           <pre class="sdk-pre"><code data-run="true">await bp.open('mantra');</code></pre>
         </div>

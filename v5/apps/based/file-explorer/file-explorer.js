@@ -13,6 +13,7 @@ export default class FileExplorer {
 
     async init() {
 
+        await this.bp.load('droparea');
         let mime = await this.bp.importModule('/v5/apps/based/file-explorer/lib/mime.js', {}, false);
         this.mime = mime.default;
 
