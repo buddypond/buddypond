@@ -5,8 +5,8 @@ export default async function getCloudFiles(prefix, depth) {
 
     // console.log('this.bp getting cloud files', this.bp);
     // console.log("using prefix", prefix, 'at depth', depth);
+    let userFiles = await this.fileExplorerInstance.client.listFiles(prefix, depth);
 
-    let userFiles = await this.bp.apps.client.api.listFiles(prefix, depth);
     // console.log('userFiles', userFiles);
     return userFiles;
 

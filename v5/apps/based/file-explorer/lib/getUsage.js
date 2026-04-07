@@ -1,7 +1,8 @@
     export default async function getUsage() {
 
         // get initial file usage
-        let currentUsage = await this.bp.apps.client.api.getFileUsage();
+        let currentUsage = await this.client.getFileUsage();
+
         // console.log('currentUsage', currentUsage);
         this.currentStorageUsage = currentUsage.usage;
         console.log('got back currentUsage', currentUsage);

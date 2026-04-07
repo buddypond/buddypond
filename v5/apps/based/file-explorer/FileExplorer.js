@@ -9,6 +9,8 @@ import getUsage from "./lib/getUsage.js";
 import onClick from "./lib/onClick.js";
 import showFile from "./lib/showFile.js";
 
+import Client from "./client/BuddyFilesClient.js";
+
 export default class FileExplorer {
     constructor(bp, options = {}) {
         this.bp = bp;
@@ -23,7 +25,12 @@ export default class FileExplorer {
         this.currentSelectedNode = {
             id: ""
         };
-    }
+
+        // creates new BuddyFiles API client
+        this.client = new Client(bp, options.client);
+        // this.client.syncWithR2();
+
+      }
 
 
     async init() {
