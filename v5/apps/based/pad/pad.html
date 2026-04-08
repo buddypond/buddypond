@@ -3,239 +3,239 @@
 
 <div class="tabs-container has-droparea" data-app="pad">
 
-    <ul class="tab-list buddy-apps-tabs">
-        <li><a href="#buddy-pads">Buddy Apps</a></li>
-        <li><a href="#pads-home">My Apps</a></li>
-        <li><a href="#pads-editor">Create App</a></li>
-    </ul>
+  <ul class="tab-list buddy-apps-tabs">
+    <li><a href="#buddy-pads">Buddy Apps</a></li>
+    <li><a href="#pads-home">My Apps</a></li>
+    <li><a href="#pads-editor">Create App</a></li>
+  </ul>
 
-    <div id="buddy-pads" class="tab-content">
-        <div class="bp-pads-container">
-            <div class="bp-pads-sidebar">
-                <h4 class="bp-pads-sidebar-title">Categories</h4>
-                <div class="bp-pads-category-list">
-                    <button class="bp-pads-category-btn bp-pads-category-active" data-category="all">All Apps</button>
-                    <button class="bp-pads-category-btn bp-pads-category-active" data-category="installed">Installed
-                        Apps</button>
-                    <!-- Categories will be dynamically populated -->
-                </div>
-            </div>
-            <div class="bp-pads-content">
-                <h3 class="bp-pads-title">Buddy Apps</h3>
-                <!-- TODO
+  <div id="buddy-pads" class="tab-content">
+    <div class="bp-pads-container">
+      <div class="bp-pads-sidebar">
+        <h4 class="bp-pads-sidebar-title">Categories</h4>
+        <div class="bp-pads-category-list">
+          <button class="bp-pads-category-btn bp-pads-category-active" data-category="all">All Apps</button>
+          <button class="bp-pads-category-btn bp-pads-category-active" data-category="installed">Installed
+            Apps</button>
+          <!-- Categories will be dynamically populated -->
+        </div>
+      </div>
+      <div class="bp-pads-content">
+        <h3 class="bp-pads-title">Buddy Apps</h3>
+        <!-- TODO
                     <input type="text" class="bp-pads-search-input" placeholder="Search for Apps...">
                 -->
-                <div class="bp-pads-grid">
-                    <!-- Apps will be dynamically rendered here -->
-                </div>
-            </div>
+        <div class="bp-pads-grid">
+          <!-- Apps will be dynamically rendered here -->
         </div>
+      </div>
     </div>
+  </div>
 
 
-    <div id="pads-home" class="tab-content">
-        <!-- Pads Management Table -->
+  <div id="pads-home" class="tab-content">
+    <!-- Pads Management Table -->
 
-        <!--
+    <!--
         <div class="loggedOut" align="center">
             <h2>Log in to BuddyPond to access BuddyPond Pads</h2>
         </div>
         -->
 
-        <div class="bp-pad-container desktop-section loggedIn">
-            <table class="bp-pad-table">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <!-- <th>Visibility</th> -->
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Pads rows will be dynamically inserted here -->
-                </tbody>
-            </table>
-        </div>
-        <div class="pads-intro">
-            <!--
+    <div class="bp-pad-container desktop-section loggedIn">
+      <table class="bp-pad-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <!-- <th>Visibility</th> -->
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Pads rows will be dynamically inserted here -->
+        </tbody>
+      </table>
+    </div>
+    <div class="pads-intro">
+      <!--
                 <div class="loggedOut" align="center">
                     <h2>Log in to BuddyPond to create a Pad</h2>
                     <h3><button class="open-app action-button" data-app="buddylist">Log In</button></h3>
                 </div>
             -->
-            <button class="bp-pad-button largest create-pad-button">Create App</button>
-            <h2>Simple to create. Easy to modify.</h2>
-            <h3>Apps can be shared with buddies, added to the Buddy Apps Store, or installed to the Desktop</h3>
-            <em>Click "Create App" to get started.</em>
+      <button class="bp-pad-button largest create-pad-button">Create App</button>
+      <h2>Simple to create. Easy to modify.</h2>
+      <h3>Apps can be shared with buddies, added to the Buddy Apps Store, or installed to the Desktop</h3>
+      <em>Click "Create App" to get started.</em>
 
-        </div>
-
-        <!-- TODO: add section for deploying app code via Github and github action -->
-        <!-- example repo: https://github.com/buddypond/buddypond-example-app -->
-        <!-- github action: https://github.com/buddypond/buddypond-example-app/blob/main/.github/workflows/upload.yml -->
-        <!-- required github secret: BP_API_KEY -->
-        <div class="pads-faq desktop-section">
-            <h1>Frequently Asked Questions</h1>
-            <hr />
-
-            <h4>What is required for a Pad?</h4>
-            <p>At a minimum, Pads require an <strong>index.html file in the root of the Pad</strong>.<br /> This
-                index.html will serve as the entry point for your application.</p>
-            <hr />
-
-            <h4>Can I deploy TypeScript applications? React? Web Assembly? WebGL?</h4>
-            <p><strong>Yes.</strong> Anything that runs in the browser will work in a BuddyPond Pad. <br />Pads are
-                backed by a standard Content Delivery Network which serves all your files as expected.</p>
-            <hr />
-
-
-            <h4>How can I deploy my app code using GitHub?</h4>
-            <p>
-                You can publish your Pad directly from a GitHub repository using a GitHub Action. This allows you to
-                automatically upload your app files to your BuddyPond Pad every time you push to your repo.
-            </p>
-
-            <p>
-                ✅ <strong>Step 1:</strong> Set up your project with an <code>index.html</code> at the root (or any valid
-                browser app).<br />
-                ✅ <strong>Step 2:</strong> Add the BuddyPond upload GitHub Action to your repo.<br />
-                ✅ <strong>Step 3:</strong> Add a GitHub secret named <code>BP_API_KEY</code> (you can find this in your
-                BuddyPond profile settings).
-            </p>
-
-            <p>
-                Here's a working example: <br />
-                📁 Template you can Clone: <a href="https://github.com/buddypond/app-template"
-                    target="_blank">buddypond/app-template</a><br />
-                ⚙️ GitHub Action: <a href="https://github.com/buddypond/upload-action"
-                    target="_blank">buddypond/upload-action</a>
-            </p>
-
-            <p>
-                Once configured, your app will automatically deploy to:<br />
-                <code>https://files.buddypond.com/YOUR_USERNAME/YOUR_UPLOAD_FOLDER/index.html</code>
-            </p>
-
-            <p>
-                The default upload folder is specified in the GitHub Action under the <code>UPLOAD_FOLDER</code>
-                variable.
-                You can structure your uploads however you like.
-            </p>
-
-            <p>
-                BuddyPond will serve your app using standard browser MIME types and full CDN delivery.
-            </p>
-
-            <hr />
-
-
-            <h4>Where are my files hosted? How do I link to my files?</h4>
-
-
-            <p>
-                Your BuddyPond files are hosted at: <a target="_blank" class="userFilesCDN"
-                    href="https://files.buddypond.com/">https://files.buddypond.com/</a>
-                <br />
-                <br />Your home directory is your username: <a class="userFilesHome" href="https://buddypond.com/"
-                    target="_blank">https://buddypond.com/</a>
-                <br /><br />In most cases, <strong>use relative links</strong> to link assets in your Pad code.
-            </p>
-            <hr />
-
-            <h4>How much storage is available?</h4>
-            <p>Each Buddy receives 10mb of free storage. Additional Storage can be purchased with $MEGA Buddy Coins.</p>
-            <p>
-                Open the <button class="open-app" data-app="file-explorer" data-context="pads">Buddy Files</button> app
-                to see your current usage.
-            </p>
-            <br />
-            <br />
-
-        </div>
     </div>
 
-    <div id="pads-editor" class="tab-content">
-        <!-- Pads Editing Section -->
-        <div class="loggedOut" align="center">
-            <h2>Log in to BuddyPond to create a Pad</h2>
-            <h3 class="portfolio-message"><button class="open-app action-button" data-app="buddylist">Log In</button>
-            </h3>
-        </div>
-        <div class="bp-pad-editor loggedIn">
-            <h1 align="center">First give your App a name.</h1>
-            <form class="bp-pad-form">
-                <label for="padTitle">Name:</label>
-                <input tabindex="1" type="text" id="padTitle" name="padTitle" class="bp-pad-input padTitle"
-                    placeholder="Enter your App name...">
-                <div id="statusIndicator" class="status-indicator"></div> <!-- Status indicator element -->
+    <!-- TODO: add section for deploying app code via Github and github action -->
+    <!-- example repo: https://github.com/buddypond/buddypond-example-app -->
+    <!-- github action: https://github.com/buddypond/buddypond-example-app/blob/main/.github/workflows/upload.yml -->
+    <!-- required github secret: BP_API_KEY -->
+    <div class="pads-faq desktop-section">
+      <h1>Frequently Asked Questions</h1>
+      <hr />
 
-                <label for="padUrl">Url:</label>
-                <input type="text" id="padUrl" name="padUrl" class="bp-pad-input padUrl" readonly="true"
-                    value="https://buddypond.com/">
-                <!--
+      <h4>What is required for a Pad?</h4>
+      <p>At a minimum, Pads require an <strong>index.html file in the root of the Pad</strong>.<br /> This
+        index.html will serve as the entry point for your application.</p>
+      <hr />
+
+      <h4>Can I deploy TypeScript applications? React? Web Assembly? WebGL?</h4>
+      <p><strong>Yes.</strong> Anything that runs in the browser will work in a BuddyPond Pad. <br />Pads are
+        backed by a standard Content Delivery Network which serves all your files as expected.</p>
+      <hr />
+
+
+      <h4>How can I deploy my app code using GitHub?</h4>
+      <p>
+        You can publish your Pad directly from a GitHub repository using a GitHub Action. This allows you to
+        automatically upload your app files to your BuddyPond Pad every time you push to your repo.
+      </p>
+
+      <p>
+        ✅ <strong>Step 1:</strong> Set up your project with an <code>index.html</code> at the root (or any valid
+        browser app).<br />
+        ✅ <strong>Step 2:</strong> Add the BuddyPond upload GitHub Action to your repo.<br />
+        ✅ <strong>Step 3:</strong> Add a GitHub secret named <code>BP_API_KEY</code> (you can find this in your
+        BuddyPond profile settings).
+      </p>
+
+      <p>
+        Here's a working example: <br />
+        📁 Template you can Clone: <a href="https://github.com/buddypond/app-template"
+          target="_blank">buddypond/app-template</a><br />
+        ⚙️ GitHub Action: <a href="https://github.com/buddypond/upload-action"
+          target="_blank">buddypond/upload-action</a>
+      </p>
+
+      <p>
+        Once configured, your app will automatically deploy to:<br />
+        <code>https://files.buddypond.com/YOUR_USERNAME/YOUR_UPLOAD_FOLDER/index.html</code>
+      </p>
+
+      <p>
+        The default upload folder is specified in the GitHub Action under the <code>UPLOAD_FOLDER</code>
+        variable.
+        You can structure your uploads however you like.
+      </p>
+
+      <p>
+        BuddyPond will serve your app using standard browser MIME types and full CDN delivery.
+      </p>
+
+      <hr />
+
+
+      <h4>Where are my files hosted? How do I link to my files?</h4>
+
+
+      <p>
+        Your BuddyPond files are hosted at: <a target="_blank" class="userFilesCDN"
+          href="https://files.buddypond.com/">https://files.buddypond.com/</a>
+        <br />
+        <br />Your home directory is your username: <a class="userFilesHome" href="https://buddypond.com/"
+          target="_blank">https://buddypond.com/</a>
+        <br /><br />In most cases, <strong>use relative links</strong> to link assets in your Pad code.
+      </p>
+      <hr />
+
+      <h4>How much storage is available?</h4>
+      <p>Each Buddy receives 10mb of free storage. Additional Storage can be purchased with $MEGA Buddy Coins.</p>
+      <p>
+        Open the <button class="open-app" data-app="file-explorer" data-context="pads">Buddy Files</button> app
+        to see your current usage.
+      </p>
+      <br />
+      <br />
+
+    </div>
+  </div>
+
+  <div id="pads-editor" class="tab-content">
+    <!-- Pads Editing Section -->
+    <div class="loggedOut" align="center">
+      <h2>Log in to BuddyPond to create a Pad</h2>
+      <h3 class="portfolio-message"><button class="open-app action-button" data-app="buddylist">Log In</button>
+      </h3>
+    </div>
+    <div class="bp-pad-editor loggedIn">
+      <h1 align="center">First give your App a name.</h1>
+      <form class="bp-pad-form">
+        <label for="padTitle">Name:</label>
+        <input tabindex="1" type="text" id="padTitle" name="padTitle" class="bp-pad-input padTitle"
+          placeholder="Enter your App name...">
+        <div id="statusIndicator" class="status-indicator"></div> <!-- Status indicator element -->
+
+        <label for="padUrl">Url:</label>
+        <input type="text" id="padUrl" name="padUrl" class="bp-pad-input padUrl" readonly="true"
+          value="https://buddypond.com/">
+        <!--
                 <label for="padDescription">Description:</label>
                 <textarea tabindex="2" id="padDescription" name="padDescription" class="bp-pad-textarea" placeholder="This is my Pad. There are many like it, but this one is mine."></textarea>
                 -->
 
-                <button type="submit" class="bp-pad-button save-pad-button">Save App</button>
-            </form>
-        </div>
-        <div class="pre-installation-message">
-            <h2>Once created, you can edit your App using the BuddyFiles app.</h2>
-            <h2>You may also deploy your App directly from Github using the <a
-                    href="https://github.com/buddypond/app-template" target="_blank">BuddyPond App Template</a>.</h2>
+        <button type="submit" class="bp-pad-button save-pad-button">Save App</button>
+      </form>
+    </div>
+    <div class="pre-installation-message">
+      <h2>Once created, you can edit your App using the BuddyFiles app.</h2>
+      <h2>You may also deploy your App directly from Github using the <a
+          href="https://github.com/buddypond/app-template" target="_blank">BuddyPond App Template</a>.</h2>
 
-                <em>Apps are stored in your BuddyFiles directory</em>
-        </div>
+      <em>Apps are stored in your BuddyFiles directory</em>
+    </div>
+  </div>
+
+  <div id="pads-upload-files" class="tab-content desktop-section">
+    <!-- Pads File Upload Section -->
+    <!-- pad name and url -->
+    <div class="pads-upload-files-pad-info">
+      <label for="padUrl">Url:</label>
+      <input type="text" name="padUrl" class="bp-pad-input padUrl" readonly="true" value="https://buddypond.com/">
+
     </div>
 
-    <div id="pads-upload-files" class="tab-content desktop-section">
-        <!-- Pads File Upload Section -->
-        <!-- pad name and url -->
-        <div class="pads-upload-files-pad-info">
-            <label for="padUrl">Url:</label>
-            <input type="text" name="padUrl" class="bp-pad-input padUrl" readonly="true" value="https://buddypond.com/">
-
-        </div>
-
-        <div class="bp-pad-manage">
-            <h2>Your Pad is being deployed and will be ready to edit in a few seconds.</h2>
-            <h3> <button class="open-app openPadButton" data-app="file-explorer"
-                    data-context="mypad/index.html">Edit your App</button></h3>
+    <div class="bp-pad-manage">
+      <h2>Your Pad is being deployed and will be ready to edit in a few seconds.</h2>
+      <h3> <button class="open-app openPadButton" data-app="file-explorer" data-context="mypad/index.html">Edit your
+          App</button></h3>
 
 
-            <div class="bp-pad-post-install">
+      <div class="bp-pad-post-install">
 
-            <h2>Modify your Buddy App using the Buddy Files Explorer</h2>
+        <h2>Modify your Buddy App using the Buddy Files Explorer</h2>
 
-            <h3>How can I deploy my app code using GitHub?</h3>
-            <p>
-                You can publish your Pad directly from a GitHub repository using a GitHub Action. This allows you to
-                automatically upload your app files to your BuddyPond Pad every time you push to your repo.
-            </p>
+        <h3>How can I deploy my app code using GitHub?</h3>
+        <p>
+          You can publish your Pad directly from a GitHub repository using a GitHub Action. This allows you to
+          automatically upload your app files to your BuddyPond Pad every time you push to your repo.
+        </p>
 
-            <br/>
-            <p>
-                ✅ <strong>Step 1:</strong> Set up your project with an <code>index.html</code> at the root (or any valid
-                browser app).<br />
-                ✅ <strong>Step 2:</strong> Add the BuddyPond upload GitHub Action to your repo.<br />
-                ✅ <strong>Step 3:</strong> Add a GitHub secret named <code>BP_API_KEY</code> (you can find this in your
-                BuddyPond profile settings).
-            </p>
-            <br/>
+        <br />
+        <p>
+          ✅ <strong>Step 1:</strong> Set up your project with an <code>index.html</code> at the root (or any valid
+          browser app).<br />
+          ✅ <strong>Step 2:</strong> Add the BuddyPond upload GitHub Action to your repo.<br />
+          ✅ <strong>Step 3:</strong> Add a GitHub secret named <code>BP_API_KEY</code> (you can find this in your
+          BuddyPond profile settings).
+        </p>
+        <br />
 
-            <p>
-                Here's a working example: <br />
-                📁 Template you can Clone: <a href="https://github.com/buddypond/app-template"
-                    target="_blank">buddypond/app-template</a><br />
-                ⚙️ GitHub Action: <a href="https://github.com/buddypond/upload-action"
-                    target="_blank">buddypond/upload-action</a>
-            </p>
-                        </div>
+        <p>
+          Here's a working example: <br />
+          📁 Template you can Clone: <a href="https://github.com/buddypond/app-template"
+            target="_blank">buddypond/app-template</a><br />
+          ⚙️ GitHub Action: <a href="https://github.com/buddypond/upload-action"
+            target="_blank">buddypond/upload-action</a>
+        </p>
+      </div>
 
 
-            <!-- 
+      <!-- 
            <h4>TODO: Add common pad templates to apply</h4>
            <ul class="bp-pad-templates">
                 <li>Desktop Client</li>
@@ -245,7 +245,7 @@
                 <li>Simple IFrame</li>
            </ul>
             -->
-        </div>
     </div>
+  </div>
 
 </div>
