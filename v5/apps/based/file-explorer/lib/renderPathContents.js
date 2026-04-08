@@ -2,8 +2,8 @@ export default function renderPathContents(path) {
 
     // $('.bp-file-explorer-address-input').val(path); // maybe no slash?
 
-    let previewPath = path.replace(this.bp.me + '/', ''); // remove the /me/ part from the path
-
+    // let previewPath = path.replace(this.bp.me + '/', ''); // remove the /me/ part from the path
+    let previewPath = path;
     this.setPreviewAddressBar(previewPath);
 
     path = path.replace('/', '');
@@ -15,10 +15,11 @@ export default function renderPathContents(path) {
 
     // console.log('going to merge metadata from ', this.cloudFiles)
     let node = instance.get_node(path);
-
     if (node) {
 
-        $('#jtree').jstree('select_node', node.id);
+        // Remark: Removed 4/8/26 - no need to select node on rendering path contents?
+        // This may not be correct, it may only be if the node is the root node
+        // $('#jtree').jstree('select_node', node.id);
         let type = node.children.length > 0 ? 'folder' : 'file';
 
         if (type === 'file') {

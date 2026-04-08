@@ -45,6 +45,7 @@ export default class FileExplorer {
     let mime = await this.bp.importModule('/v5/apps/based/file-explorer/lib/mime.js', {}, false);
     this.mime = mime.default;
 
+    // Remark: can this be removed? why was this added here?
     this.onClick();
 
     return 'loaded file explorer';

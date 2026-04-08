@@ -50,15 +50,12 @@ export default function jstreeEvents(treeData) {
     // console.log('Tree is now ready');
     // render the root folder contents
     //let jsTree = $('#jtree').jstree(true);
-
     if (this.options.context) {
       if (this.options.context === 'default') { // TODO: why is default value here?
         this.fileExplorer.renderPathContents('/');
-
       } else {
         this.fileExplorer.renderPathContents(this.options.context);
       }
-
     } else {
       this.fileExplorer.renderPathContents('/');
     }
@@ -145,19 +142,16 @@ export default function jstreeEvents(treeData) {
 
   $('#jtree').on("changed.jstree", (e, data) => {
     // console.log('changed.jstree', e, data.selected);
-
     // determine if the selected node is a file or folder
     let node = data.instance.get_node(data.selected[0]);
     // console.log('attempted to get node with id', data.selected[0]);
     // renderNodeContents(data, node);
     if (node) {
+      // Remark: This will render the item in the preview pane with single click on jsTree node
       this.fileExplorer.renderPathContents('/' + node.id);
     } else {
       console.log('node not found', data.selected[0]);
     }
-
   });
-
-
 
 }

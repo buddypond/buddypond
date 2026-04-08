@@ -51,6 +51,7 @@ export default async function open({ context }) {
         } else {
             // jsTree should be ready at this point ( as file-explorer was already created )
             // this could have race condition if spammed opened on first load
+            /*
             if (this.options.context) {
                 this.fileExplorer.renderPathContents(this.options.context);
 
@@ -58,6 +59,7 @@ export default async function open({ context }) {
                 this.fileExplorer.renderPathContents('/');
 
             }
+            */
 
         }
 
