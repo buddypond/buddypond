@@ -47,6 +47,27 @@ export default function buildJsTreeData(id, paths) {
         }
     });
 
+    function sortTree(nodes) {
+        nodes.sort((a, b) => {
+            const aIsFolder = a.icon !== 'jstree-file';
+            const bIsFolder = b.icon !== 'jstree-file';
+
+            if (aIsFolder !== bIsFolder) {
+                return aIsFolder ? -1 : 1;
+            }
+
+            return a.text.localeCompare(b.text);
+        });
+
+        for (let i = 0; i < nodes.length; i++) {
+            if (nodes[i].children.length > 0) {
+                sortTree(nodes[i].children);
+            }
+        }
+    }
+
+    sortTree(root.children);
+
     // Optional: Validate tree for circular references
     function validateTree(nodes, seenIds = new Set()) {
         for (const node of nodes) {
