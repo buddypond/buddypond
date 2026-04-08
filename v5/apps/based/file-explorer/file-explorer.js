@@ -18,8 +18,6 @@ export default class FileExplorer {
         this.mime = mime.default;
 
         // load jstree from CDN ( for now )
-        // TODO: vendor
-        //await this.bp.appendScript('https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js');
         await this.bp.appendScript('/v5/apps/based/file-explorer/vendor/jstree.min.js');
 
         this.bp.log('Hello from File Explorer');
@@ -200,13 +198,15 @@ export default class FileExplorer {
                     return {
                         /* TODO: create and delete
                         "Create": {
-                            "separator_before": false,
-                            "separator_after": false,
-                            "label": "Create",
-                            "action": function (obj) {
-                                tree.create_node(node);
-                            }
+                                "separator_before": false,
+                                "separator_after": false,
+                                "label": "Create",
+                                "action": function (obj) {
+                                        tree.create_node(node);
+                                }
                         },
+                        */
+
                         "Rename": {
                             "separator_before": false,
                             "separator_after": false,
@@ -215,7 +215,6 @@ export default class FileExplorer {
                                 tree.edit(node);
                             }
                         },
-                        */
                         "Delete": {
                             "separator_before": false,
                             "separator_after": true,
@@ -268,6 +267,36 @@ export default class FileExplorer {
         // $('.bp-file-explorer-address-input').val('/');
 
         // TODO: move as much of this logic to the FileExplorer class as possible
+
+        $('#jtree').on("rename_node.jstree", (e, data) => {
+            // console.log('edit_node.jstree', e, data);
+            let node = data.node;
+            let oldPath = node.id;
+            let newPath = data.text;
+            console.log('Attempting to rename', oldPath, 'to', newPath);
+
+            let me = this.bp.me;
+            // check if newPath and oldPath are the same, if so do nothing
+            if (oldPath === (me + '/' + newPath)) {
+                console.log('Old path and new path are the same, no rename needed');
+                return;
+            }
+
+            this.fileExplorer.client.renameFile(oldPath, newPath).then(() => {
+                // console.log('File renamed successfully');
+                // update the node id to the new path
+                let tree = $('#jtree').jstree(true);
+                tree.set_id(node, newPath);
+                // console.log('Updated node id to new path', newPath);
+            }).catch(err => {
+                console.error('Error renaming file:', err);
+                alert('Error renaming file: ' + err.message);
+                // refresh the tree to reset the node name back to the old path
+                $('#jtree').jstree(true).refresh();
+            });
+        });
+
+
 
         $('#jtree').on("delete_node.jstree", (e, data) => {
             // delete the file or directory from CDN
@@ -355,10 +384,10 @@ export default class FileExplorer {
         const toggleButton = document.querySelector('.toggle-tree', this.fileExplorer.content);
 
         if (this.bp.isMobile()) {
-        toggleButton.addEventListener('click', () => {
-            console.log('Toggle button clicked');
-            this.sidebar.classList.toggle('active');
-        });
+            toggleButton.addEventListener('click', () => {
+                console.log('Toggle button clicked');
+                this.sidebar.classList.toggle('active');
+            });
 
         } else {
             toggleButton.remove();

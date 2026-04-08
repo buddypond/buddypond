@@ -104,6 +104,16 @@ BuddyFilesClient.prototype.getFileMetadata = async function (fileName) {
   );
 };
 
+BuddyFilesClient.prototype.renameFile = async function (oldFileName, newFileName) {
+  const me = this.getMe();
+  return await this.fetchJson(`/renameFile?userFolder=${me}&oldKey=${oldFileName}&newKey=${newFileName}`, {}, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  }, 'Failed to rename file');
+};
+
+// TODO: go through entire app and replace usage of buddypond.uploadFile with this call
+// Remark: this will require we import the new BuddyFilesClient into the `desktop` app
 BuddyFilesClient.prototype.uploadFile = async function (file, onProgress) {
   onProgress = onProgress || function noop() {};
 
