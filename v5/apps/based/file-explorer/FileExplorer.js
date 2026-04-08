@@ -1,6 +1,5 @@
 import handleDrop from "./lib/handleDrop.js";
 import handleUpload from "./lib/handleUpload.js";
-import FileTree from "./FileTree/FileTree.js";
 import renderFolderContents from "./lib/renderFolderContents.js";
 import renderPathContents from "./lib/renderPathContents.js";
 import open from "./lib/open.js";
@@ -41,13 +40,6 @@ export default class FileExplorer {
     let bytes = await this.bp.importModule('/v5/apps/based/file-explorer/lib/bytes.js', {}, false);
     this.bytes = bytes.default;
 
-
-    this.fileTreeInstance = new FileTree(this.bp, this.options.fileTree);
-
-    await this.fileTreeInstance.init();
-
-    this.fileTree = this.fileTreeInstance;
-
     // async import import mime from 'mime';
     // is most likely already loaded and cached at this point
     let mime = await this.bp.importModule('/v5/apps/based/file-explorer/lib/mime.js', {}, false);
@@ -63,7 +55,6 @@ export default class FileExplorer {
     let host = this.bp.config.host;
     // this.bp.emit('browser::setAddressBar', host + path);
     this.bp.emit('browser::setAddressBar', host + '/' + this.bp.me + path);
-
   }
 
 }

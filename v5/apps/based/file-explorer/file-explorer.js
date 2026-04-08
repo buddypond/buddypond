@@ -6,7 +6,6 @@ import jstreeEvents from "./lib/jsTreeEvents.js";
 import areFilesSame from "./lib/helpers/areFilesSame.js";
 import eventBind from "./lib/eventBind.js";
 
-
 export default class FileExplorer {
   constructor(bp, options = {}) {
     this.bp = bp;

@@ -6,6 +6,7 @@ export default class Folder {
         this.data = data;
         this.container = container || document.createElement('div');
         this.container.className = 'folder-holder';
+        alert('folder constructor');
     }
 
     render() {
