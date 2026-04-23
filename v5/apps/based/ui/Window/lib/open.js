@@ -34,8 +34,11 @@ export default function open() {
         type: this.type,
         context: this.context
     };
+
     // console.log('openWindow openItem', _app);
-    this.bp.apps.taskbar.taskBar.openItem(_app);
+    if (this.bp.apps.taskbar && this.bp.apps.taskbar.taskBar) {
+      this.bp.apps.taskbar.taskBar.openItem(_app);
+    }
 
     // add the items to this.bp.apps.ui.recentApps
     this.bp.apps.ui.recentApps = this.bp.apps.ui.recentApps || this.bp.settings.recentApps || [];
