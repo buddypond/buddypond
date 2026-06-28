@@ -35,6 +35,14 @@ export default {
     "onClick": "bp.open('crafting')",
     "categories": ["creative", "community"]
   },
+  "market": {
+    "icon": "desktop/assets/images/icons/icon_market_64.webp",
+    "label": "Market",
+    "adminOnly": true,
+    "description": "Buy and sell items in the marketplace",
+    "onClick": "bp.open('market')",
+    "categories": ["finance", "community"]
+  },
   "pad": {
     "icon": "desktop/assets/images/icons/icon_pad_64.webp",
     "label": "Buddy Apps",
@@ -646,5 +654,13 @@ export default {
     onClick: "bp.open('bots')",
     categories: ['tools', 'productivity', 'ai'],
     "enumerable": false
-  }
+  },
+  'eyes': {
+    icon: 'desktop/assets/images/icons/icon_buddy-frog_64.webp',
+    label: 'Eyes',
+    description: 'CV Eyes',
+    onClick: "bp.open('eyes')",
+    categories: ['tools', 'productivity', 'cv'],
+    "enumerable": false
+  },
 }
